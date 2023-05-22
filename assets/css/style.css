@@ -36,9 +36,67 @@ h1, h2, h3, h4, h5, h6 {
 
 .header {
     position: absolute;
+    padding-top: 30px;
     width: 100%;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;     /* элементы по разные стороны блока */
+    align-items: center;
+}
+
+.header__logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Nav */
+
+.nav {
+    font-size: 14 px;
+    text-transform: uppercase;
+}
+
+.nav__link {
+    display: inline-block;  /* элементы в строку */
+    vertical-align: top;
+    margin: 0 15px;         /* расстояние между элементами */
+    position: relative;
+
+    color: #fff;
+    text-decoration: none;
+    transition: color .15s linear;  /* чтобы цвет менялся плавно */
+}
+
+
+/* псевдо-элементы */
+.nav__link::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 3px;
+
+
+    background-color: #fce38a;
+    opacity: 0;
+    position: absolute;  /* относительно родителя, там должно быть position: relative; */
+    top: 100%;
+    left: 0;
+    z-index: 1;
+
+    transition: opacity .15s linear;
+}
+
+.nav__link:hover {
+    color: #fce38a;
+}
+
+.nav__link:hover::after {
+    opacity: 1;
 }
